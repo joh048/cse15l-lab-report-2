@@ -1,6 +1,54 @@
 # Lab Report 2
 
-![Image](Code.jpg)
+```
+import java.io.IOException;
+import java.net.URI;
+
+class Handler implements URLHandler {
+    // The one bit of state on the server: a number that will be manipulated by
+    // various requests.
+    String str = "";
+    int num = 1;
+
+    public String handleRequest(URI url) {
+        if (url.getPath().equals("/search")) {
+            String[] parameters = url.getQuery().split("=");
+            if (parameters[0].equals("s")) {
+                if(parameters[1].equals("app")) {
+                    return String.format("John's String:%s", str);
+                }
+            }
+        } else {
+            if (url.getPath().contains("/add-message")) {
+                String[] parameters = url.getQuery().split("=");
+                if (parameters[0].equals("s")) {
+                    str += String.valueOf(num);
+                    str += ". ";
+                    str += parameters[1];
+                    str += "\n";
+                    num++;
+                    return str.replace('+', ' ');
+                }
+            }
+            return "404 Not Found!";
+        }
+        return str;
+    }
+}
+
+class SearchServer {
+    public static void main(String[] args) throws IOException {
+        if(args.length == 0){
+            System.out.println("Missing port number! Try any number between 1024 to 49151");
+            return;
+        }
+
+        int port = Integer.parseInt(args[0]);
+
+        Server.start(port, new Handler());
+    }
+}
+```
 
 ![Image](Add1.jpg)
 - The method handleRequest is called which returns a value of String type. The purpose of the handleRequest method is to take in a url of type URI and add it to a list of Strings which is later returned.
