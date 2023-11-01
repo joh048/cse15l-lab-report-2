@@ -60,7 +60,8 @@ class SearchServer {
 - The relevant argument to the handleRequest method is still URI url. The method looks for the matching path and query. If all match, then add the string to the list.
 - The values of num and str still start off the same as the Hello request. num starts off at 0 and str starts off as an empty string "". The changes to the values are also the same. Whenever a string is added, the num value gets incremented since the count of strings on the list goes up by one for adding a new string. The new string value from the url is added onto the end of the str value including the the num count and newline "\n". However a key difference between the Hello request and  the request in this images is that we are now adding a phrase "How are you" which includes spaces. URLs are not allowed to have spaces. To fix this problem and ensure that the URL is valid, all spaces are replaced with + signs. This poses a problem for us now because instead of get "2. How are you" we get "2. How+are+you". A simple fix of this problem is to simply at the end before returning the string str value, we just replace all plus signs "+" with spaces " ".
 
-![Image](key.jpg)
+<img width="356" alt="image" src="https://github.com/joh048/cse15l-lab-report-2/assets/146862219/34dbb9bf-1646-4ced-9976-82134a7b6b41">
+
 ![Image](key2.jpg)
 ![Image](login.jpg)
 
