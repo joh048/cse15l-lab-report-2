@@ -60,9 +60,14 @@ class SearchServer {
 - The relevant argument to the handleRequest method is still URI url. The method looks for the matching path and query. If all match, then add the string to the list.
 - The values of num and str still start off the same as the Hello request. num starts off at 0 and str starts off as an empty string "". The changes to the values are also the same. Whenever a string is added, the num value gets incremented since the count of strings on the list goes up by one for adding a new string. The new string value from the url is added onto the end of the str value including the the num count and newline "\n". However a key difference between the Hello request and  the request in this images is that we are now adding a phrase "How are you" which includes spaces. URLs are not allowed to have spaces. To fix this problem and ensure that the URL is valid, all spaces are replaced with + signs. This poses a problem for us now because instead of get "2. How are you" we get "2. How+are+you". A simple fix of this problem is to simply at the end before returning the string str value, we just replace all plus signs "+" with spaces " ".
 
-<img width="356" alt="image" src="https://github.com/joh048/cse15l-lab-report-2/assets/146862219/34dbb9bf-1646-4ced-9976-82134a7b6b41">
+<img width="242" alt="image" src="https://github.com/joh048/cse15l-lab-report-2/assets/146862219/3059bfad-acce-409e-ae8b-a71cb4e48d9e">
 
-![Image](key2.jpg)
+- This is the path to the private key on my local computer.
+
+![Screenshot (62)](https://github.com/joh048/cse15l-lab-report-2/assets/146862219/68d18a39-fdc1-458f-be99-5572a3cec074)
+
+- The left split screen shows the remote ieng6 computer with the file path to the public key. The public key has been copied from my local computer to my authorized keys on my remote ieng6 computer. In order to demonstrate that the file path on my remote ieng6 computer is the correct path to the same public key on my local, I used the cat command to show the contents of the id_rsa.pub in my local computer is the same as the contents of authroized keys in my remote ieng6 computer.
+
 ![Image](login.jpg)
 
 - Something that I learned in lab 2 was how to create a simple search engine. Before I had an idea about how the URL worked. I had a basic idea on how the URL can be related to a what you put in a search bar, but now I actually know how to implement it. I was able to learn about how to implement a URL handler in Java which really clears up a few of my unknowns about URLs in the past.
